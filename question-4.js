@@ -13,16 +13,26 @@ const alphaTech = [
     { name: 'Faythe', age: 18, department: 'Engineering' },
     { name: 'Grace', age: 20, department: 'Engineering' }
   ];
-  
+
+function addCompany(company, companyName) {
+    for(let i = 0; i < company.length; i++) {
+        company[i].company = companyName;
+    }
+    return company;
+}
+
+addCompany(alphaTech, "alphaTech");
+addCompany(betaSoft, "betaSoft");
+addCompany(gammaDev, "gammaDev");
 
 const allEmployees = alphaTech.concat(betaSoft, gammaDev);
-
+ 
 const result = allEmployees.filter((employee) => {
-  return employee.department === 'Enginering' && employee.age > 20;
+  return employee.department === 'Engineering' && employee.age >= 20;
 }).map((employee) => {
   return {
     name: employee.name,
-    company: '' 
+    company: employee.company
   };
 });
 
